@@ -1,0 +1,34 @@
+#include <stdio.h>
+int main() 
+{
+    FILE *filePointer;
+    int character;
+    int lineCount = 0;
+
+    filePointer = fopen("example.txt", "r");
+
+    if (filePointer == NULL) 
+{
+        printf("Error opening file!\n");
+        return 1;
+    }
+
+   
+    while ((character = fgetc(filePointer)) != EOF) 
+{
+        if (character == '\n')
+{
+            lineCount++; 
+        }
+    }
+
+    if (lineCount > 0 || ftell(filePointer) != 0)
+{
+        lineCount++;
+    }
+
+    fclose(filePointer);
+
+    printf("Number of lines in the file: %d\n", lineCount);
+    return 0; 
+}

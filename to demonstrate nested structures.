@@ -1,0 +1,43 @@
+#include <iostream>
+#include <string>
+#include <vector>
+
+struct Address 
+{
+    std::string street;
+    std::string city;
+    std::string postalCode;
+};
+
+struct Person 
+{
+    std::string name;
+    int age;
+    Address address; 
+    std::vector<std::string> hobbies; 
+};
+
+int main() 
+{
+   
+    Person person;
+
+    person.name = "Alice";
+    person.age = 30;
+    person.address.street = "123 Main St";
+    person.address.city = "Wonderland";
+    person.address.postalCode = "12345";
+    person.hobbies = {"reading", "traveling", "swimming"};
+
+    std::cout << "Name: " << person.name << std::endl;
+    std::cout << "Age: " << person.age << std::endl;
+    std::cout << "City: " << person.address.city << std::endl;
+    std::cout << "Hobbies: ";
+    for (const auto& hobby : person.hobbies)
+{
+        std::cout << hobby << " ";
+    }
+    std::cout << std::endl;
+
+    return 0;
+}

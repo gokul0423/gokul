@@ -1,0 +1,44 @@
+#include <stdio.h>
+int main()
+{
+    FILE *filePointer;
+    char text[100];
+
+    filePointer = fopen("example.txt", "a");
+
+    if (filePointer == NULL)
+{
+        printf("Error opening file!\n");
+        return 1; 
+    }
+
+    
+    printf("Ent
+#include <stdio.h>
+
+int main() {
+    FILE *filePointer;
+    char text[100];
+
+    // Open the file in append mode ("a")
+    filePointer = fopen("example.txt", "a");
+
+    // Check if the file opened successfully
+    if (filePointer == NULL) {
+        printf("Error opening file!\n");
+        return 1; // Return with an error code
+    }
+
+    // Get user input
+    printf("Enter text to append to the file (max 99 characters): ");
+    fgets(text, sizeof(text), stdin); // Read a line of text
+
+    // Append to the file
+    fprintf(filePointer, "%s", text);
+
+    // Close the file
+    fclose(filePointer);
+
+    printf("Text appended to example.txt successfully.\n");
+    return 0; // Success
+}

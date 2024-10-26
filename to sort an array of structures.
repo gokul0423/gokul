@@ -1,0 +1,60 @@
+#include <stdio.h>
+#include <string.h>
+struct Student
+{
+    char name[50];
+    float grade;
+};
+
+void sortStudents(struct Student students[], int n)
+{
+    struct Student temp;
+    for (int i = 0; i < n - 1; i++) 
+{
+        for (int j = 0; j < n - i - 1; j++) 
+{
+            if (students[j].grade > students[j + 1].grade) 
+{
+               
+                temp = students[j];
+                students[j] = students[j + 1];
+                students[j + 1] = temp;
+            }
+        }
+    }
+}
+
+void displayStudents(struct Student students[], int n)
+{
+    printf("\nStudent List:\n");
+    printf("Name\t\tGrade\n");
+    printf("-----------------------\n");
+    for (int i = 0; i < n; i++)
+{
+        printf("%s\t\t%.2f\n", students[i].name, students[i].grade);
+    }
+}
+
+int main() 
+{
+    struct Student students[5] = {
+        {"Alice", 85.0},
+        {"Bob", 92.5},
+        {"Charlie", 78.0},
+        {"Diana", 88.5},
+        {"Evan", 90.0}
+    };
+
+    int n = sizeof(students) / sizeof(students[0]);
+
+    printf("Before sorting:");
+    displayStudents(students, n);
+
+  
+    sortStudents(students, n);
+
+    printf("\nAfter sorting by grades:");
+    displayStudents(students, n);
+
+    return 0;
+}

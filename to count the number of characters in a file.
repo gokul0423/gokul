@@ -1,0 +1,23 @@
+#include <stdio.h>
+int main()
+{
+    FILE *filePointer;
+    int character;
+    int count = 0;
+    filePointer = fopen("example.txt", "r");
+
+    if (filePointer == NULL)
+{
+        printf("Error opening file!\n");
+        return 1; 
+    }
+
+    while ((character = fgetc(filePointer)) != EOF) {
+        count++; // Increment count for each character read
+    }
+
+    fclose(filePointer);
+
+    printf("Number of characters in the file: %d\n", count);
+    return 0; // Success
+}

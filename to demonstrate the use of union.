@@ -1,0 +1,33 @@
+#include <stdio.h>
+#include <string.h>
+
+union Data 
+{
+    int intValue;
+    float floatValue;
+    char strValue[50];
+};
+
+int main()
+{
+    union Data data; 
+    
+    data.intValue = 10;
+    printf("Using union to store an integer:\n");
+    printf("Integer Value: %d\n", data.intValue);
+   
+    data.floatValue = 15.5;
+    printf("\nUsing union to store a float:\n");
+    printf("Float Value: %.2f\n", data.floatValue);
+  
+    strcpy(data.strValue, "Hello, Union!");
+    printf("\nUsing union to store a string:\n");
+    printf("String Value: %s\n", data.strValue);
+
+    printf("\nValues after different assignments:\n");
+    printf("Integer Value: %d\n", data.intValue);  
+    printf("Float Value: %.2f\n", data.floatValue); 
+    printf("String Value: %s\n", data.strValue);
+
+    return 0;
+}

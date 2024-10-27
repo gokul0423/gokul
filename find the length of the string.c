@@ -1,9 +1,8 @@
 #include <stdio.h>
 
 int main() {
-    char str[100]; // Array to hold the input string
-    int length = 0; // Variable to store the length of the string
-
+    char str[100];
+    int length = 0;
     printf("Enter a string: ");
     fgets(str, sizeof(str), stdin); // Read a line of input
 
